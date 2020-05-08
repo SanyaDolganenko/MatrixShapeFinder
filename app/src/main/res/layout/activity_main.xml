@@ -16,9 +16,9 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/matrix_container"
         android:layout_width="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
         android:elevation="10dp"
         android:padding="20dp"
         app:cardCornerRadius="4dp">
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
             android:gravity="center"
-            android:text="1 0 1 0 0 1\n1 0 1 0 0 1\n1 0 0 0 1 1"
+            android:text="\?"
             android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

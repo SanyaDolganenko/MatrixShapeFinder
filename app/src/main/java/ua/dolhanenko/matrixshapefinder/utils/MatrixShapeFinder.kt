@@ -35,7 +35,6 @@ class MatrixShapeFinder(private val matrix: Matrix) {
                 }
             }
         }
-        Log.d(LOG_TAG, "Found following shapes count: ${foundShapes.size}")
         return foundShapes
     }
 }

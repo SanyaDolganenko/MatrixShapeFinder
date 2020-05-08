@@ -1,14 +1,10 @@
 package ua.dolhanenko.matrixshapefinder
 
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import junit.framework.Assert.assertEquals
 import org.junit.Test
-import org.junit.runner.RunWith
 import ua.dolhanenko.matrixshapefinder.data.model.Matrix
-
 import ua.dolhanenko.matrixshapefinder.utils.MatrixShapeFinder
 
-@RunWith(AndroidJUnit4::class)
 class ShapeFinderTest {
     @Test
     fun testSidewaysAdjacency() {
