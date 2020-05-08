@@ -4,6 +4,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import junit.framework.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import ua.dolhanenko.matrixshapefinder.utils.Matrix
+import ua.dolhanenko.matrixshapefinder.utils.MatrixValidator
 
 @RunWith(AndroidJUnit4::class)
 class MatrixValidatorTest {

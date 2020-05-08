@@ -1,4 +1,4 @@
-package ua.dolhanenko.matrixshapefinder
+package ua.dolhanenko.matrixshapefinder.utils
 
 import android.util.Log
 import kotlin.math.abs

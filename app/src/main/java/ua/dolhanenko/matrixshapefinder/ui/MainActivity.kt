@@ -1,8 +1,11 @@
-package ua.dolhanenko.matrixshapefinder
+package ua.dolhanenko.matrixshapefinder.ui
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import ua.dolhanenko.matrixshapefinder.R
+import ua.dolhanenko.matrixshapefinder.utils.Matrix
+import ua.dolhanenko.matrixshapefinder.utils.MatrixShapeFinder
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +20,9 @@ class MainActivity : AppCompatActivity() {
         )
         Toast.makeText(
             this,
-            "Number of shapes: ${MatrixShapeFinder(Matrix(array)).findShapes()}",
+            "Number of shapes: ${MatrixShapeFinder(
+                Matrix(array)
+            ).findShapes()}",
             Toast.LENGTH_SHORT
         ).show()
     }
