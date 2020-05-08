@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         )
         Toast.makeText(
             this,
-            "Number of shapes: ${ShapeFinder(Matrix(array)).findShapes()}",
+            "Number of shapes: ${MatrixShapeFinder(Matrix(array)).findShapes()}",
             Toast.LENGTH_SHORT
         ).show()
     }

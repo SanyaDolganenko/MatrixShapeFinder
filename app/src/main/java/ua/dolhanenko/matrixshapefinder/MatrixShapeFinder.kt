@@ -23,12 +23,12 @@ class Matrix(val array: Array<Array<Int>>) {
     }
 }
 
-class ShapeFinder(private val matrix: Matrix) {
+class MatrixShapeFinder(private val matrix: Matrix) {
     companion object {
         private const val LOG_TAG = "SHAPE_FINDER"
     }
 
-    fun findShapes(): Int {
+    fun findShapes(): List<Shape> {
         val foundShapes = mutableListOf<Shape>()
         val matrixArray = matrix.array
         for (offsetY in matrixArray.indices) {
@@ -53,6 +53,6 @@ class ShapeFinder(private val matrix: Matrix) {
             }
         }
         Log.d(LOG_TAG, "Found following shapes count: ${foundShapes.size}")
-        return foundShapes.size
+        return foundShapes
     }
 }
