@@ -18,7 +18,14 @@ class MatrixLoader {
                 arrayOf(0, 1, 0, 0, 0, 1),
                 arrayOf(1, 0, 0, 0, 0, 1)
             )
-            handler.post { onLoaded(listOf(Matrix(array))) }
+
+            val array2 = arrayOf(
+                arrayOf(1, 0, 1, 0, 0),
+                arrayOf(1, 0, 0, 1, 0),
+                arrayOf(0, 1, 0, 0, 0),
+                arrayOf(1, 1, 0, 1, 0)
+            )
+            handler.post { onLoaded(listOf(Matrix(array), Matrix(array2))) }
         }
     }
 }

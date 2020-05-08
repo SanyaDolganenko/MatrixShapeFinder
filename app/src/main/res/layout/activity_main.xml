@@ -11,11 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/matrix_container"
-        android:layout_margin="20dp" />
+        android:layout_margin="10dp" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/matrix_container"
         android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:elevation="10dp"
@@ -23,6 +24,7 @@
         app:cardCornerRadius="4dp">
 
         <TextView
+            android:id="@+id/matrix_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
