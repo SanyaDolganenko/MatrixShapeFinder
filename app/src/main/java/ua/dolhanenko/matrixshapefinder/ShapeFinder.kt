@@ -6,8 +6,8 @@ import kotlin.math.abs
 
 data class Vertex(val offsetX: Int, val offsetY: Int) {
     fun isAdjacentTo(other: Vertex): Boolean {
-        return abs(offsetX - other.offsetX) == 1 &&
-                abs(offsetY - other.offsetY) == 1
+        return abs(offsetX - other.offsetX) in 0..1 &&
+                abs(offsetY - other.offsetY) in 0..1
     }
 }
 
@@ -32,17 +32,22 @@ class ShapeFinder(private val matrix: Matrix) {
         val foundShapes = mutableListOf<Shape>()
         val matrixArray = matrix.array
         for (offsetY in matrixArray.indices) {
-            for (offsetX in matrixArray[offsetY]) {
+            for (offsetX in matrixArray[offsetY].indices) {
                 val currentVertex = Vertex(offsetX, offsetY)
                 if (matrix.valueOf(currentVertex) == 1) {
-                    foundShapes.forEach { shape ->
-                        //TODO break here too, if needed.
+                    var addedToShape = false
+                    for (shape in foundShapes) {
+                        if (addedToShape) break
                         for (vertex in shape.vertices) {
                             if (vertex.isAdjacentTo(currentVertex)) {
                                 shape.vertices.add(currentVertex)
+                                addedToShape = true
                                 break
                             }
                         }
+                    }
+                    if (!addedToShape) {
+                        foundShapes.add(Shape(mutableSetOf(currentVertex)))
                     }
                 }
             }
