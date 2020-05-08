@@ -1,5 +1,6 @@
 package ua.dolhanenko.matrixshapefinder.ui
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -11,6 +12,7 @@ import ua.dolhanenko.matrixshapefinder.data.access.MatrixLoader
 import ua.dolhanenko.matrixshapefinder.data.model.Matrix
 import ua.dolhanenko.matrixshapefinder.utils.MatrixConverter
 import ua.dolhanenko.matrixshapefinder.utils.MatrixShapeFinder
+import ua.dolhanenko.matrixshapefinder.utils.MatrixValidator
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -39,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             val selection = matrix_selector.selectedItemPosition
             val matrix = matricesList[selection]
             val result = MatrixShapeFinder(matrix).findShapes().size
-            text_view_result.text = "Result: $result"
+            text_view_result.text = getString(R.string.result_text, result.toString())
         }
         matrix_selector.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -47,12 +49,26 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                text_view_result.text = "Result:"
+                displayMatrixValidState()
                 val matrix = matricesList[p2]
                 matrix_field.text = MatrixConverter.convertMatrixToString(matrix)
+                if (!MatrixValidator.validateMatrix(matrix)) {
+                    displayMatrixInvalidState()
+                }
             }
-
         }
+    }
+
+    private fun displayMatrixValidState() {
+        text_view_result.text = getString(R.string.result_text, "")
+        button_find_shapes.isEnabled = true
+        matrix_field.setTextColor(Color.BLACK)
+    }
+
+    private fun displayMatrixInvalidState() {
+        text_view_result.text = getString(R.string.invalid_matrix)
+        button_find_shapes.isEnabled = false
+        matrix_field.setTextColor(Color.RED)
     }
 
     private fun updateSelectorAdapter() {
