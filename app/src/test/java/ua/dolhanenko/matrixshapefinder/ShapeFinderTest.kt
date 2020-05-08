@@ -38,4 +38,15 @@ class ShapeFinderTest {
         val finder = MatrixShapeFinder(Matrix(array))
         assertEquals(1, finder.findShapes().size)
     }
+
+    @Test
+    fun testRandomAdjacency() {
+        val array = arrayOf(
+            arrayOf(0, 1, 0, 0, 1),
+            arrayOf(0, 0, 1, 1, 1),
+            arrayOf(0, 1, 0, 0, 0)
+        )
+        val finder = MatrixShapeFinder(Matrix(array))
+        assertEquals(1, finder.findShapes().size)
+    }
 }
