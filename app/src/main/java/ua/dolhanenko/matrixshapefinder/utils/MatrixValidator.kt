@@ -1,5 +1,7 @@
 package ua.dolhanenko.matrixshapefinder.utils
 
+import ua.dolhanenko.matrixshapefinder.data.model.Matrix
+
 
 object MatrixValidator {
     /**

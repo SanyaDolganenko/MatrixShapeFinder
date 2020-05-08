@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/matrix_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/matrix_container"
+        android:layout_margin="20dp" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/matrix_container"
         android:layout_width="wrap_content"

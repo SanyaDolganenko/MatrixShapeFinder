@@ -1,27 +1,10 @@
 package ua.dolhanenko.matrixshapefinder.utils
 
 import android.util.Log
-import kotlin.math.abs
+import ua.dolhanenko.matrixshapefinder.data.model.Matrix
+import ua.dolhanenko.matrixshapefinder.data.model.Shape
+import ua.dolhanenko.matrixshapefinder.data.model.Vertex
 
-
-data class Vertex(val offsetX: Int, val offsetY: Int) {
-    fun isAdjacentTo(other: Vertex): Boolean {
-        return abs(offsetX - other.offsetX) in 0..1 &&
-                abs(offsetY - other.offsetY) in 0..1
-    }
-}
-
-data class Shape(val vertices: MutableSet<Vertex>)
-
-class Matrix(val array: Array<Array<Int>>) {
-    fun valueOf(vertex: Vertex): Int {
-        try {
-            return array[vertex.offsetY][vertex.offsetX]
-        } catch (e: IndexOutOfBoundsException) {
-        }
-        return -1
-    }
-}
 
 class MatrixShapeFinder(private val matrix: Matrix) {
     companion object {
